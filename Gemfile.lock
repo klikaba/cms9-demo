@@ -61,6 +61,8 @@ GEM
     arel (7.1.4)
     autoprefixer-rails (6.5.0.2)
       execjs
+    bootstrap-material-design (0.2.2)
+      bootstrap-sass (~> 3.0)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -198,6 +200,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-material-design
+  bootstrap-sass (~> 3.3.6)
   byebug
   cms9!
   coffee-rails (~> 4.2)

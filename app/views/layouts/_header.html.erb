@@ -1,0 +1,22 @@
+<div class="bs-component">
+   <div class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="javascript:void(0)">CMS9</a>
+        </div>
+         <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+				<% Cms9::PostDefinition.all.each do |post_def| %>          
+				    <li><%= link_to post_def.name.pluralize, url_for(post_def.name.pluralize.downcase ) %></li>
+				<% end %>      
+            </ul>
+         </div>
+      </div>
+   </div>
+</div>
+

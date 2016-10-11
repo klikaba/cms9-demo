@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'cms9', path: '../cms9'
 #gem 'devise'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-material-design'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
