@@ -1,0 +1,13 @@
+<div class="row">
+  <h2><%= @careers_definition.name.pluralize %></h2> 
+  <% @careers.each do |career| %>
+    <div class="col-sm-4">
+      <div class="well">
+        <%= link_to url_for(career) do %>
+        <h4><%= career.field('Title').value %></h4>
+        <% end %>
+        <p><%= career.field('Description').value %></p>
+      </div>
+    </div>              
+  <% end %>
+</div>

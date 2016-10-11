@@ -1,0 +1,13 @@
+<div class="row">
+  <h2><%= @blog_definition.name.pluralize %></h2> 
+  <% @blogs.each do |blog| %>
+    <div class="col-sm-4">
+        <div class="well">
+        <%= link_to url_for(blog) do %>
+          <h4><%= blog.field('Title').value %></h4>
+        <% end %> 
+          <p><%= blog.field('Author').value %></p>
+        </div>
+    </div>              
+  <% end %>
+</div>

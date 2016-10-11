@@ -1,0 +1,12 @@
+<div class="row">
+  <h2><%= @post_definition.name.pluralize %></h2>
+  <% @posts.each do |post| %>
+    <div class="col-sm-4">
+      <div class="well">
+        <%= link_to url_for(post) do %>
+        <h4 class="post-title"><%= post.field('Title').value %></h4>
+        <% end %> 
+      </div>
+    </div>              
+  <% end %>
+</div>
