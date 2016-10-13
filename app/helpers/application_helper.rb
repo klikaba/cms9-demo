@@ -12,4 +12,6 @@ module ApplicationHelper
     	render partial_type, field: model.image.url 
     end
   end
+ 
+
 end

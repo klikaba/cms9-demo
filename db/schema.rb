@@ -31,13 +31,12 @@ ActiveRecord::Schema.define(version: 20161006165124) do
   create_table "cms9_fields", force: :cascade do |t|
     t.integer  "post_id"
     t.integer  "post_field_id"
-    t.string   "value"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.text     "value"
     t.text     "image"
     t.string   "image_uid"
     t.string   "image_name"
-    t.string   "image_custom_size"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["post_field_id"], name: "index_cms9_fields_on_post_field_id"
     t.index ["post_id"], name: "index_cms9_fields_on_post_id"
   end
@@ -52,10 +51,10 @@ ActiveRecord::Schema.define(version: 20161006165124) do
     t.integer  "post_definition_id"
     t.string   "name"
     t.string   "field_type"
+    t.boolean  "required",           default: false, null: false
+    t.string   "metadata"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
-    t.boolean  "required",           default: false, null: false
-    t.string   "multiple_choices"
     t.index ["post_definition_id"], name: "index_cms9_post_fields_on_post_definition_id"
   end
 
