@@ -1,0 +1,20 @@
+<div class="show-post">
+	<%= show_image_unless_empty(@post.field('Image'), "post_types/image") %>
+</div>
+<div class="title">
+	<%= show_field_unless_empty(@post.field('Title'), "post_types/text") %>
+</div>
+<%= show_field_unless_empty(@post.field('Date of create'), "post_types/date") %>
+<%= show_field_unless_empty(@post.field('Content'), "post_types/text_area") %>
+<%= show_field_unless_empty(@post.field('Description'), "post_types/text_area") %>
+<div class="author">
+	<%= show_field_unless_empty(@post.field('Author'), "post_types/text") %>
+</div>
+
+
+
+
+
+
+
+    

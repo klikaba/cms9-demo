@@ -1,0 +1,16 @@
+<div class="row">
+  <% posts.each do |post| %>
+ 	<div class="col-sm-4">
+	 	<div class="well">
+	      <%= link_to url_for(post.model) do %>
+	        <%= show_image_unless_empty(post.model.field('Image'), "post_types/image") %>
+	        <%= show_field_unless_empty(post.model.field('Title'), "post_types/text") %>
+	      <% end %> 
+	      <%= show_field_unless_empty(post.model.field('Description'), "post_types/text") %>
+	      <%= show_field_unless_empty(post.model.field('Author'), "post_types/text") %>
+	      <%= show_field_unless_empty(post.model.field('Date of create'), "post_types/date") %>
+	    </div> 
+    </div>             
+  <% end %>
+</div>
+

@@ -1,43 +1,9 @@
 <div class="page-header">
   <h1>Welcome to cms9 demo app!</h1>
 </div>
-<div class="row">
-  <h2><%= @post_definition.name.pluralize %></h2>
-  <% @posts.each do |post| %>
-    <div class="col-sm-4">
-      <div class="well">
-        <%= link_to url_for(post) do %>
-        <h4 class="post-title"><%= post.field('Title').value %></h4>
-        <% end %> 
-      </div>
-    </div>              
-  <% end %>
-</div>
-
-<div class="row">
-  <h2><%= @blog_definition.name.pluralize %></h2> 
-  <% @blogs.each do |blog| %>
-    <div class="col-sm-4">
-        <div class="well">
-        <%= link_to url_for(blog) do %>
-          <h4><%= blog.field('Title').value %></h4>
-        <% end %> 
-          <p><%= blog.field('Author').value %></p>
-        </div>
-    </div>              
-  <% end %>
-</div>
-
-<div class="row">
-  <h2><%= @careers_definition.name.pluralize %></h2> 
-  <% @careers.each do |career| %>
-    <div class="col-sm-4">
-      <div class="well">
-        <%= link_to url_for(career) do %>
-        <h4><%= career.field('Title').value %></h4>
-        <% end %>
-        <p><%= career.field('Description').value %></p>
-      </div>
-    </div>              
-  <% end %>
-</div>
+  <h2>Posts</h2>
+  <%= render 'index_post_list', posts: @posts %>
+  <h2>Blogs</h2>
+  <%= render 'index_post_list', posts: @blogs %>
+  <h2>Careers</h2>
+  <%= render 'index_post_list', posts: @careers %>

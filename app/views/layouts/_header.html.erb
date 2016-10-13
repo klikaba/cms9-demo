@@ -11,9 +11,9 @@
         </div>
          <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
-				<% Cms9::PostDefinition.all.each do |post_def| %>          
-				    <li><%= link_to post_def.name.pluralize, url_for(post_def.name.pluralize.downcase ) %></li>
-				<% end %>      
+    				<% Cms9::PostDefinition.all.each do |post_def| %> 
+              <li><a href="<%= links(post_def.name) %>"><%= post_def.name.pluralize%></a></li>
+    				<% end %>      
             </ul>
          </div>
       </div>

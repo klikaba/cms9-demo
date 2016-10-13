@@ -1,0 +1,4 @@
+---
+name: thumb_blog_illustracija.png
+model_class: Cms9::Field
+model_attachment: image
