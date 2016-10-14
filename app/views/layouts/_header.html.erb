@@ -12,8 +12,10 @@
          <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
     				<% Cms9::PostDefinition.all.each do |post_def| %> 
-              <li><a href="<%= links(post_def.name) %>"><%= post_def.name.pluralize%></a></li>
-    				<% end %>      
+              <% if post_def.posts.count != 0 %>
+                <li><%= link_to post_def.name , posts_path({name: post_def.name}) %></li>
+              <% end %>
+            <% end %>
             </ul>
          </div>
       </div>

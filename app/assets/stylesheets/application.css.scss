@@ -25,6 +25,15 @@
   margin-bottom: -99999px;
   padding-bottom: 99999px;
 }
+table.table{
+	tr th{
+		background-color: #ddd;
+    	color: #009688;
+	}
+	img {
+		height:60px;
+	}
+}
 .post-holder {
 	background-color: #fff;
     border-radius: 2px;

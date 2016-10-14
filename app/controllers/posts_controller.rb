@@ -1,11 +1,15 @@
 class PostsController < ApplicationController
   def index
-  	@post_definition  = Cms9::PostDefinition.find(1)
-    @posts = Cms9::Post.where(post_definition: @post_definition)
+
+  	if params[:name].blank?
+  		@posts = Cms9::Post.all.limit(20).order('created_at desc')
+  	else
+  		post_definition = Cms9::PostDefinition.where(name: params[:name]).first
+  		@posts = post_definition.posts
+  	end
   end
+  
   def show
-    params.inspect
-  	@post = Cms9::Post.find(params[:id])
-  	@post_definition = Cms9::PostDefinition.find(@post.post_definition.id)
+    @post = Cms9::Post.find(params[:id])
   end
 end

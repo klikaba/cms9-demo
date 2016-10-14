@@ -1,14 +1,11 @@
 <div class="row">
-  <h2><%= @post_definition.name.pluralize %></h2>
   <% @posts.each do |post| %>
-    <div class="col-sm-4">
+  	<div class="col-md-4">
       <div class="well">
-        <h4 class="post-title">
-        <%=  cms9_fields(post.field('Title')) %>
-        <%=  cms9_field(post.field('Image')) %>
-        <%=  cms9_fields(post.field('Content')) %>
-        <%=  cms9_fields(post.field('Tags')) %>
-      </div>
-    </div>              
+      	<%= post.field('Image').blank? ? '' :  image_tag(post.field('Image')) %>
+        <%= link_to post.field('Title'), post_path(post.id) %>
+        <%= post.field('Description') %>
+       </div>
+    </div>
   <% end %>
 </div>
