@@ -237,6 +237,7 @@ You can choose another design for your navigation bar but make sure to use this 
     </div>
     <%= render 'layouts/footer' %>
 </body>
+```
 
 You can make any kind of layout for your posts and show them however you want.
 Once you made a simple layout, you are ready to create as many posts as you want. It's that easy.
