@@ -92,12 +92,11 @@ application.css:
 ```
 
 ```ruby
-#*application.scss
+#application.scss
 /*
 *= require bootstrap-material-design
 */
 ```
-
 
 ##CMS9 admin panel
 
@@ -124,31 +123,121 @@ resources :posts, only: [:index, :sho
 
 ```ruby
 def index
+  if params[:name].blank?
+  	@posts = Cms9::Post.all.limit(20).order('created_at desc')
+  else
+    post_definition = Cms9::PostDefinition.where(name: params[:name]).first
+    @posts = post_definition.posts
+  end
 end
 ```
 
+*To display all Posts in our index page we need to create in view/posts index.html.erb and add code:
 
+```html
+#view/posts/index.html.erb
+<div class="row">
+  <% @posts.each do |post| %>
+    <div class="col-md-4">
+      <div class="well">
+        <%= link_to post.field('Title'), post_path(post.id) %>
+       </div>
+    </div>
+  <% end %>
+</div>
+```
+We are accesing to posts fields with this part of code:
 
+```html
+post.field('Title')
+```
+To create some Post type in CMS9 admin panel we define fields and types. For each field we must create name, so we could access in app with this part of the code "post.field('Title')". For example, if we have created text are filed with name 'Description' we would access to value of this filed with "post.field('Description')"
 
+Before running the server, make sure that you have created some Post Types and populate/create it's data.
 
+*Now we need to create access for each post. To do this we need to create method show in Posts controller.
 
-Things you may want to cover:
+```ruby
+def show
+  @post = Cms9::Post.find(params[:id])
+end
+```
+*To display each populated post we need to create file in view/posts show.html.erb and add a code for displaying elements we want to display, as we have done in the index page or you can use next part of the code to show all fields types and values from all Post Types.
 
-* Ruby version
+```html
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>TYPE</th>
+        <th>DATA</th>
+      </tr>
+    <% @post.fields.each do |field| %> 
+      <tr>
+        <td><%=field.id%></td>
+        <td><%=field.post_field.name%></td>
+        <td><%=field.post_field.field_type%></td>
+        <td><%=cms9_field(field)%></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>
+```
 
-* System dependencies
+Rerun the server and check for changes.
 
-* Configuration
+Now we have created index and show page, we are going to create header and footer for our app.
+In the view/layouts crete partial views _header.html.erb and _footer.html.erb.
 
-* Database creation
+For header we have useed navigation bar from our material theme we have added.
 
-* Database initialization
+```html
+<div class="navbar navbar-info">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-material-light-blue-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'CMS9',root_path, class:'navbar-brand' %>
+    </div>
+    <div class="navbar-collapse collapse navbar-material-light-blue-collapse">
+      <ul class="nav navbar-nav">
+        <% Cms9::PostDefinition.all.each do |post_def| %> 
+          <% if post_def.posts.any? %>
+            <li><%= link_to post_def.name , posts_path({name: post_def.name}) %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+```
+You can choose another design for your navigation bar but make sure to use this part of code to display list of available Post Types in our CMS9 admin panel which have at least one populated post.
 
-* How to run the test suite
+```ruby
+<% Cms9::PostDefinition.all.each do |post_def| %> 
+  <% if post_def.posts.any? %>
+    <li><%= link_to post_def.name , posts_path({name: post_def.name}) %></li>
+  <% end %>
+<% end %>
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+*Afther finishing navigation bar, add partial view in your app.
 
-* Deployment instructions
+```html
+<body>
+  <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+</body>
 
-* ...
+You can make any kind of layout for your posts and showed them however you want.
+Once you made a simple layout, you are ready to create as many posts as you want. It's that easy.
 
