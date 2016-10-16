@@ -1,4 +1,4 @@
-# CMS9 - DEMO
+# CMS9 - Demo
 
 This is a demo application for Cms9 - Small CMS Admin module for Rails.
 
@@ -55,12 +55,12 @@ Re-bundle and restart your server to make the files available through the pipeli
 @import "bootstrap";
 ```
 
-Change the extension of the application.css in scss.
+*Change the extension of the application.css in scss.
 
 ```bash
 $ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
 ```
-Then, remove all the *= require_self and *= require_tree . statements from the sass file. Instead, use @import to import Sass files.
+*Then, remove all the *= require_self and *= require_tree . statements from the sass file. Instead, use @import to import Sass files.
 
 Require Bootstrap Javascripts in app/assets/javascripts/application.js:
 
@@ -68,14 +68,68 @@ Require Bootstrap Javascripts in app/assets/javascripts/application.js:
 //= require jquery
 //= require bootstrap-sprockets
 ```
-
 bootstrap-sprockets and bootstrap should not both be included in application.js.
 
+##Material Design
 
+Material Design for Bootstrap is a Bootstrap V3 compatible theme. 
+To add theme in app please follow next steps:
+
+*In your Gemfile you need to add the material-design gem
+
+```ruby
+# Gemfile
+gem 'bootstrap-material-design'
+```
+Re-bundle and restart your server to make the files available through the pipeline.
+
+*You should include the theme right after the Bootstrap CSS and include the javascript at the end of your document, everything will be converted to Material Design (paper) style.
+
+```ruby
+#application.js:
+//= require bootstrap-material-design
+application.css:
+```
+
+```ruby
+#*application.scss
+/*
+*= require bootstrap-material-design
+*/
+```
+
+
+##CMS9 admin panel
 
 When your Cms9 is up and running, before creating posts and populating them with content we need to create a Post Types. Post Types is defined by fields and its types.
 
-After creating a Post Type, you are ready to populate/create it's data. For different field types you will get different input methods, for easier input handling. Once when it's stored, it's available to be showed in your application, for example:
+After creating a Post Type, you are ready to populate/create it's data. For different field types you will get different input methods, for easier input handling. Once when it's stored, it's available to be showed in your application.
+
+In order to show on our website all posts of one post type, please follow the following steps:
+
+*Generate controller Posts
+
+```bash
+$ rails g controller Posts
+```
+*Add routes in routes file:
+
+```ruby
+#config/routs
+root 'posts#index'
+resources :posts, only: [:index, :sho
+```
+
+*In the Posts controller create method for the index page.
+
+```ruby
+def index
+end
+```
+
+
+
+
 
 
 Things you may want to cover:
