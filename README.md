@@ -1,7 +1,9 @@
-# README
+# CMS9 - DEMO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a demo application for Cms9 - Small CMS Admin module for Rails.
+
+##What is a CMS9-demo
+This is a small app in the Ruby on Rails framework which uses the CMS9 library for Rails. For more information please see the  CMS9 documentation on the link https://github.com/klikaba/cms9/tree/develop.
 
 Things you may want to cover:
 
@@ -22,3 +24,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
