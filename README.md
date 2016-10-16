@@ -1,9 +1,9 @@
 # CMS9 - Demo
 
-This is a demo application for Cms9 - Small CMS Admin module for Rails.
+This is a demo application that uses Cms9 (Small CMS Admin module for Rails).
 
 ##What is a CMS9-demo
-This is a small app in the Ruby on Rails framework which uses the CMS9 library for Rails. For more information please see the  CMS9 documentation on the link https://github.com/klikaba/cms9/tree/develop.
+This is a small app made in the Ruby on Rails framework which uses the CMS9 library for Rails. For more information please see the  CMS9 documentation on the link: https://github.com/klikaba/cms9/tree/develop.
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ Re-bundle, then run the installer:
 ```bash
 $ rails generate cms9:install [DEF_ROUTE]
 ```
-Where [DEF_ROUTE] is optional and presents where your Cms9 route will be mounted, by default it's /cms9
+Where [DEF_ROUTE] is optional and represents where your Cms9 route will be mounted, by default it's /cms9
 
 Install generator will mount Cms9 route, add current_user configurator initializer and additional configuration for Ckeditor.
 
@@ -29,13 +29,13 @@ Then run:
 $ rails db:migrate
 ```
 
-Restart your server, and visit http://localhost:3000/cms9 (or where you defined Cms9 to be mounted)
+Restart your server, and visit http://localhost:3000/cms9 (or where you have defined Cms9 to be mounted)
 to see your new Cms9 dashboard in action.
 
 ##Bootstrap and Material Design theme
 
-To enhance the appearance we have added bootstrap for rails and Material Design.
-To add bootstrap in app please follow next steps:
+To enhance the appearance we have added bootstrap for rails and Material Design theme.
+To add bootstrap to the app please do the following steps:
 
 *In your Gemfile you need to add the bootstrap-sass gem, and ensure that the sass-rails gem is present - it is added to new Rails applications by default. 
 
@@ -73,7 +73,7 @@ bootstrap-sprockets and bootstrap should not both be included in application.js.
 ##Material Design
 
 Material Design for Bootstrap is a Bootstrap V3 compatible theme. 
-To add theme in app please follow next steps:
+To add the theme in app please follow next steps:
 
 *In your Gemfile you need to add the material-design gem
 
@@ -102,9 +102,9 @@ application.css:
 
 When your Cms9 is up and running, before creating posts and populating them with content we need to create a Post Types. Post Types is defined by fields and its types.
 
-After creating a Post Type, you are ready to populate/create it's data. For different field types you will get different input methods, for easier input handling. Once when it's stored, it's available to be showed in your application.
+After creating a Post Type, you are ready to populate/create it's data. For different field types you will get different input methods, for easier input handling. Once when it's stored, it's available to be shown in your application.
 
-In order to show on our website all posts of one post type, please follow the following steps:
+In order to show all posts of one post type on our website, please do the following steps:
 
 *Generate controller Posts
 
@@ -132,7 +132,7 @@ def index
 end
 ```
 
-*To display all Posts in our index page we need to create in view/posts index.html.erb and add code:
+*To display all Posts in our index page we need to create it in the view/posts index.html.erb and add code:
 
 ```html
 #view/posts/index.html.erb
@@ -151,7 +151,7 @@ We are accesing to posts fields with this part of code:
 ```html
 post.field('Title')
 ```
-To create some Post type in CMS9 admin panel we define fields and types. For each field we must create name, so we could access in app with this part of the code "post.field('Title')". For example, if we have created text are filed with name 'Description' we would access to value of this filed with "post.field('Description')"
+To create a Post type in the CMS9 admin panel we have to define the fields and types. For each field we must create a name, so we can access it in the app with this part of the code "post.field('Title')". For example, if we have created a post type with a field(text-area) under the name of "Description" we would access the value of this filed with the following code "post.field('Description')"
 
 Before running the server, make sure that you have created some Post Types and populate/create it's data.
 
@@ -227,7 +227,7 @@ You can choose another design for your navigation bar but make sure to use this 
 <% end %>
 ```
 
-*Afther finishing navigation bar, add partial view in your app.
+*After finishing the navigation bar, add a partial view in your app.
 
 ```html
 <body>
@@ -238,6 +238,6 @@ You can choose another design for your navigation bar but make sure to use this 
     <%= render 'layouts/footer' %>
 </body>
 
-You can make any kind of layout for your posts and showed them however you want.
+You can make any kind of layout for your posts and show them however you want.
 Once you made a simple layout, you are ready to create as many posts as you want. It's that easy.
 
