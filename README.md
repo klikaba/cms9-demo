@@ -242,3 +242,7 @@ You can choose another design for your navigation bar but make sure to use this 
 You can make any kind of layout for your posts and show them however you want.
 Once you made a simple layout, you are ready to create as many posts as you want. It's that easy.
 
+## License
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+

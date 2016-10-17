@@ -12,7 +12,7 @@
         <td><%=field.id%></td>
         <td><%=field.post_field.name%></td>
         <td><%=field.post_field.field_type%></td>
-        <td><%=cms9_field(field)%></td>
+        <td><%=cms9_field(field).html_safe%></td>
       </tr>
     <% end %>
     </table>

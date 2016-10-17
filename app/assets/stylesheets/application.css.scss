@@ -10,8 +10,6 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  *= require bootstrap-material-design
  */
 @import "bootstrap-sprockets";
@@ -28,7 +26,7 @@
 table.table{
 	tr th{
 		background-color: #ddd;
-    	color: #009688;
+    	color: #fff;
 	}
 	img {
 		height:60px;

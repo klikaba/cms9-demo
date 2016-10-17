@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   def index
-
   	if params[:name].blank?
   		@posts = Cms9::Post.all.limit(20).order('created_at desc')
   	else
@@ -8,7 +7,7 @@ class PostsController < ApplicationController
   		@posts = post_definition.posts
   	end
   end
-  
+
   def show
     @post = Cms9::Post.find(params[:id])
   end
