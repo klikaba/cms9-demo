@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>TYPE</th>
+        <th>DATA</th>
+      </tr>
+    <% @post.fields.each do |field| %> 
+      <tr>
+        <td><%=field.id%></td>
+        <td><%=field.post_field.name%></td>
+        <td><%=field.post_field.field_type%></td>
+        <td><%=cms9_field(field).html_safe%></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>

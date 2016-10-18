@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap-material-design
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* Custom css */
+.row {
+  overflow: hidden; 
+}
+[class*="col-"]{
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+table.table{
+	tr th{
+		background-color: #ddd;
+    	color: #fff;
+	}
+	img {
+		height:60px;
+	}
+}
+.post-holder {
+	background-color: #fff;
+    border-radius: 2px;
+    border: 0;
+    padding-top: 15px;
+		img {
+			width: 100%;
+	    	height: 180px;
+		}
+}
+.well {
+	img {
+		width: 100%;
+	   	height: 180px;
+	   	margin-bottom: 15px;
+	}
+}
+.title p {
+	font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    color:green;
+    font-size: 24px;
+}
+.author p {
+	float:right;
+}
+
+.show-post {
+	margin:15px 0;
+	img {
+		width:100%;
+		max-height:400px;
+	}
+}
+footer {
+	.footer-holder {
+		background-color: #ddd;
+		padding: 25px 0;
+		text-align: center;
+	}
+}
