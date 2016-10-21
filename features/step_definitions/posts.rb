@@ -14,9 +14,9 @@ When(/^I go to the post page$/) do
 end
 
 Given(/^there are posts$/) do
-   @post_definition = FactoryGirl.create(:post_definition)
-   @post_field = FactoryGirl.create(:post_field)
-   @field = FactoryGirl.create(:field)
+  @post_definition = FactoryGirl.create(:post_definition)
+  @post_field = FactoryGirl.create(:post_field)
+  @field = FactoryGirl.create(:field)
   @post = FactoryGirl.create(:post)
 
 end
