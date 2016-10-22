@@ -1,0 +1,16 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-signin" }) do |f| %>
+  <h2 class="form-signin-heading">Register</h2>
+
+  <%= devise_error_messages! %>
+
+  <%= f.label :email, class: "sr-only" %>
+  <%= f.email_field :email, { autofocus: true, class: "form-control", placeholder: "Email address", style: "margin-bottom: 10px;" } %>
+
+  <%= f.label :password, class: "sr-only" %>
+  <%= f.password_field :password, { autocomplete: "off", class: "form-control", placeholder: "Password", required: "", style: "margin-bottom: 10px;" } %>
+
+  <%= f.label :password_confirmation, class: "sr-only" %>
+  <%= f.password_field :password_confirmation, { autocomplete: "off", class: "form-control", placeholder: "Password Confirmation", required: "" } %>
+
+  <%= f.submit "Register", class: "btn btn-lg btn-info btn-block" %>
+<% end %>

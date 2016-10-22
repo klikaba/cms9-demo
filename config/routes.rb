@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  mount Cms9::Engine => '/cms9'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
+
+  authenticate :user do
+    mount Cms9::Engine => '/cms9' # or DEF_ROUTE where your Cms9 route is mounted
+  end
+
   root 'posts#index'
 
   resources :posts, only: [:index, :show]
