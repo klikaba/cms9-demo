@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
+
   def index
   	if params[:name].blank?
   		@posts = Cms9::Post.all.limit(20).order('created_at desc')

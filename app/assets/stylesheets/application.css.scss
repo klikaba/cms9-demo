@@ -17,7 +17,7 @@
 
 /* Custom css */
 .row {
-  overflow: hidden; 
+  overflow: hidden;
 }
 [class*="col-"]{
   margin-bottom: -99999px;
@@ -69,7 +69,16 @@ table.table{
 footer {
 	.footer-holder {
 		background-color: #ddd;
-		padding: 25px 0;
+		padding: 15px 0;
 		text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 	}
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
 }

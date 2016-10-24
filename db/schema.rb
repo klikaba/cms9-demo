@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006165124) do
+ActiveRecord::Schema.define(version: 20161022211855) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_uid",                  null: false
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 20161006165124) do
     t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
   end
 
+  create_table "cms9_events", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "post_definition_id"
+    t.text     "user"
+    t.string   "action"
+    t.string   "deleted_field"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["post_definition_id"], name: "index_cms9_events_on_post_definition_id"
+    t.index ["post_id"], name: "index_cms9_events_on_post_id"
+  end
+
   create_table "cms9_fields", force: :cascade do |t|
     t.integer  "post_id"
     t.integer  "post_field_id"
@@ -35,6 +47,7 @@ ActiveRecord::Schema.define(version: 20161006165124) do
     t.text     "image"
     t.string   "image_uid"
     t.string   "image_name"
+    t.string   "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["post_field_id"], name: "index_cms9_fields_on_post_field_id"
@@ -43,6 +56,7 @@ ActiveRecord::Schema.define(version: 20161006165124) do
 
   create_table "cms9_post_definitions", force: :cascade do |t|
     t.string   "name"
+    t.string   "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,6 +67,7 @@ ActiveRecord::Schema.define(version: 20161006165124) do
     t.string   "field_type"
     t.boolean  "required",           default: false, null: false
     t.string   "metadata"
+    t.string   "user_id"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.index ["post_definition_id"], name: "index_cms9_post_fields_on_post_definition_id"
@@ -60,9 +75,27 @@ ActiveRecord::Schema.define(version: 20161006165124) do
 
   create_table "cms9_posts", force: :cascade do |t|
     t.integer  "post_definition_id"
+    t.string   "user_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["post_definition_id"], name: "index_cms9_posts_on_post_definition_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
