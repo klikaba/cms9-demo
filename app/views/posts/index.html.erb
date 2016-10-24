@@ -3,7 +3,6 @@
   	<div class="col-md-4">
       <div class="well">
       	<%= !post.field('Image').blank?  ? image_tag(post.field('Image')) : '' %>
-      	<%= cms9_field(post.field('Image')) %>
         <%= link_to post.field('Title'), post_path(post.id) %>
         <p><%= post.field('Description') %></p>
        </div>
