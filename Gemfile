@@ -30,8 +30,10 @@ gem 'pry-rails', '~>0.3.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'cms9', path: '../cms9'
-#gem 'devise'
+gem 'cms9', '~> 0.2.0'
+
+gem 'devise'
+
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap-material-design'
 

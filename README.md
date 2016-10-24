@@ -2,44 +2,39 @@
 
 # CMS9 - Demo
 
-This is a demo application that uses Cms9 (Small CMS Admin module for Rails).
+This is a demo application that uses [Cms9 (Small CMS Admin module for Rails)](https://github.com/klikaba/cms9).
 
-##What is a CMS9-demo
-This is a small app made in the Ruby on Rails framework which uses the CMS9 library for Rails. For more information please see the  CMS9 documentation on the link: https://github.com/klikaba/cms9/tree/develop.
+## What is a CMS9-demo
+This is a small app made in the Ruby on Rails framework which uses the CMS9 library for Rails. For more information please see the  CMS9 documentation on the link: https://github.com/klikaba/cms9.
 
 ## Getting Started
 
-Add Cms9 to your Gemfile:
+This Cms9 demo application uses Devise for authentication, so there is already users model and migration included with simple implementation.
+User is able to register/login and only after that case he is able to access Cms9 admin-dashboard.
 
-```ruby
-# Gemfile
-gem "cms9"
-```
+Cms9 gem and configurations are already inserted into application and ready to go.
 
-Re-bundle, then run the installer:
+Just re-bundle:
 
 ```bash
-$ rails generate cms9:install [DEF_ROUTE]
+$ bundle install
 ```
-Where [DEF_ROUTE] is optional and represents where your Cms9 route will be mounted, by default it's /cms9
 
-Install generator will mount Cms9 route, add current_user configurator initializer and additional configuration for Ckeditor.
-
-Then run:
+And then run:
 
 ```bash
 $ rails db:migrate
 ```
 
-Restart your server, and visit http://localhost:3000/cms9 (or where you have defined Cms9 to be mounted)
-to see your new Cms9 dashboard in action.
+Start your server, and visit http://localhost:3000
+to see your new Cms9 application in action.
 
 ##Bootstrap and Material Design theme
 
 To enhance the appearance we have added bootstrap for rails and Material Design theme.
 To add bootstrap to the app please do the following steps:
 
-*In your Gemfile you need to add the bootstrap-sass gem, and ensure that the sass-rails gem is present - it is added to new Rails applications by default. 
+*In your Gemfile you need to add the bootstrap-sass gem, and ensure that the sass-rails gem is present - it is added to new Rails applications by default.
 
 
 ```ruby
@@ -74,7 +69,7 @@ bootstrap-sprockets and bootstrap should not both be included in application.js.
 
 ##Material Design
 
-Material Design for Bootstrap is a Bootstrap V3 compatible theme. 
+Material Design for Bootstrap is a Bootstrap V3 compatible theme.
 To add the theme in app please follow next steps:
 
 *In your Gemfile you need to add the material-design gem
@@ -176,7 +171,7 @@ end
         <th>TYPE</th>
         <th>DATA</th>
       </tr>
-    <% @post.fields.each do |field| %> 
+    <% @post.fields.each do |field| %>
       <tr>
         <td><%=field.id%></td>
         <td><%=field.post_field.name%></td>
@@ -209,7 +204,7 @@ For header we have useed navigation bar from our material theme we have added.
     </div>
     <div class="navbar-collapse collapse navbar-material-light-blue-collapse">
       <ul class="nav navbar-nav">
-        <% Cms9::PostDefinition.all.each do |post_def| %> 
+        <% Cms9::PostDefinition.all.each do |post_def| %>
           <% if post_def.posts.any? %>
             <li><%= link_to post_def.name , posts_path({name: post_def.name}) %></li>
           <% end %>
@@ -222,7 +217,7 @@ For header we have useed navigation bar from our material theme we have added.
 You can choose another design for your navigation bar but make sure to use this part of code to display list of available Post Types in our CMS9 admin panel which have at least one populated post.
 
 ```ruby
-<% Cms9::PostDefinition.all.each do |post_def| %> 
+<% Cms9::PostDefinition.all.each do |post_def| %>
   <% if post_def.posts.any? %>
     <li><%= link_to post_def.name , posts_path({name: post_def.name}) %></li>
   <% end %>
@@ -246,5 +241,3 @@ Once you made a simple layout, you are ready to create as many posts as you want
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
-

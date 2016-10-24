@@ -10,10 +10,42 @@
     </div>
     <div class="navbar-collapse collapse navbar-material-light-blue-collapse">
       <ul class="nav navbar-nav">
-        <% Cms9::PostDefinition.all.each do |post_def| %> 
+        <% Cms9::PostDefinition.all.each do |post_def| %>
           <% if post_def.posts.any? %>
             <li><%= link_to post_def.name , posts_path({name: post_def.name}) %></li>
           <% end %>
+        <% end %>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              <%= current_user.email %>
+              <b class="caret"></b>
+              <div class="ripple-container"></div>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to cms9_path do %>
+                  Cms9 Administration
+                <% end %>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  Logout
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Register", new_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "Login", new_user_session_path %>
+          </li>
         <% end %>
       </ul>
     </div>
