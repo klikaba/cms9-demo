@@ -1,3 +1,5 @@
+![Cms9 Logo](https://raw.githubusercontent.com/klikaba/cms9/master/app/assets/images/cms9/cms9_logo_readme.png)
+
 # CMS9 - Demo
 
 This is a demo application that uses Cms9 (Small CMS Admin module for Rails).

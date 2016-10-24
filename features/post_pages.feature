@@ -1,4 +1,4 @@
-Feature: Pposts
+Feature: Posts
   Scenario: guest user see footer
 	Given I am a guest user
 	When I go to the index page
