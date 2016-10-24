@@ -16,11 +16,10 @@ end
 Given(/^there are posts$/) do
   @post_definition = FactoryGirl.create(:post_definition)
   @post_field = FactoryGirl.create(:post_field)
-  @field = FactoryGirl.create(:field)
+  @field = FactoryGirl.create(:field, value: 'First blog')
   @post = FactoryGirl.create(:post)
-
 end
 
 Then(/^I must see posts conten$/) do
-  expect(page).to have_content('WEB DEVELOPER POSITION')
+  expect(page).to have_content('First blog')
 end

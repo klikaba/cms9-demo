@@ -1,9 +1,14 @@
 require "rails_helper"
 
 describe PostsController, type: :controller do
+  let(:post_definition) { FactoryGirl.create(:post_definition) }
+  let(:post_field) { FactoryGirl.create(:post_field) }
+  let(:field) { FactoryGirl.create(:field) }
+  let(:post) { FactoryGirl.create(:post) }
+  
   describe 'render index template' do
 	it 'GET index template' do
-		get :index
+		get :index 
 		expect(response).to render_template(:index)   
 	end
 
@@ -19,18 +24,12 @@ describe PostsController, type: :controller do
   end
 
    describe 'render post template' do
-	
-   	let(:post_definition) { FactoryGirl.create(:post_definition) }
-   	let(:post_field) { FactoryGirl.create(:post_field) }
-   	let(:field) { FactoryGirl.create(:field) }
-   	let(:post) { FactoryGirl.create(:post) }
-
 	it 'SHOW post' do
 		get :show, id: post 
 		expect(response).to render_template(:show)   
 	end
 
-	it 'GET error' do
+	it 'SHOW post page status' do
 		get :show, id: post 
 		expect(response.status).to eq(200) # wraps assert_template
 	end
@@ -42,3 +41,4 @@ describe PostsController, type: :controller do
 
   end
 end
+
