@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/klikaba/cms9
-  revision: 335151013529ee2c65c49040b1c1d66a52a96077
+  revision: 64618c4cb714aa0d830cb7fc52ea0bbcea73f7ce
   specs:
-    cms9 (0.1.1)
+    cms9 (0.2.0)
       bootstrap-sass (~> 3.3.7)
       ckeditor
       coffee-rails (~> 4.2)
@@ -60,7 +60,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (7.1.4)
-    autoprefixer-rails (6.5.1)
+    autoprefixer-rails (6.5.1.1)
       execjs
     bcrypt (3.1.11)
     bootstrap-material-design (0.2.2)
