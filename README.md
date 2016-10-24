@@ -1,6 +1,8 @@
+![Cms9 Logo](https://raw.githubusercontent.com/klikaba/cms9/master/app/assets/images/cms9/cms9_logo_readme.png)
+
 # CMS9 - Demo
 
-This is a demo application that uses Cms9 (Small CMS Admin module for Rails).
+This is a demo application that uses [Cms9 (Small CMS Admin module for Rails)](https://github.com/klikaba/cms9).
 
 ## What is a CMS9-demo
 This is a small app made in the Ruby on Rails framework which uses the CMS9 library for Rails. For more information please see the  CMS9 documentation on the link: https://github.com/klikaba/cms9.
