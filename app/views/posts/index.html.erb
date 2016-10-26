@@ -3,12 +3,8 @@
     <% slice.each do |post| -%>
   	<div class="col-md-4">
       <div class="well">
-<<<<<<< HEAD
-      	<%= !post.field('Image').blank?  ? image_tag(post.field('Image')) : '' %>
-=======
       	<!-- <%= !post.field('Image').blank?  ? image_tag(post.field('Image')) : '' %> -->
       	<%= cms9_field(post.field('Image')) %>
->>>>>>> 25fd02061a6735feef18af77154f67275bfc2c1d
         <%= link_to post.field('Title'), post_path(post.id) %>
         <div><%= post.field('Content') %></div>
        </div>
